@@ -48,16 +48,16 @@ https://templatemo.com/tm-581-kind-heart-charity
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
 :root {
-  --white-color:                  #FF0000;
-  --primary-color:                #FF0000;
-  --secondary-color:              #3D0000;
-  --section-bg-color:             #950101;
+  --white-color:                  #ffffff;
+  --primary-color:                #ff110de5;
+  --secondary-color:              #f82222;
+  --section-bg-color:             #f0f8ff;
   --site-footer-bg-color:         #44525d;
-  --custom-btn-bg-color:          #950101;
-  --custom-btn-bg-hover-color:    #950101;
+  --custom-btn-bg-color:          #e32929;
+  --custom-btn-bg-hover-color:    #0070ff;
   --dark-color:                   #000000;
-  --p-color:                      #f22626;
-  --border-color:                 #1f1f1f;
+  --p-color:                      #ffffff;
+  --border-color:                 #e9eaeb;
 
   --body-font-family:             'Metropolis', sans-serif;
 
