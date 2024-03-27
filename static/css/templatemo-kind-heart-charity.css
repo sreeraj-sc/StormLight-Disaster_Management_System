@@ -157,7 +157,7 @@ button {
 }
 
 a {
-  color: var(--p-color);
+  color: var(--primary-color);
   text-decoration: none;
 }
 

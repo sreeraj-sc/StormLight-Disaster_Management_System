@@ -93,6 +93,7 @@ def addlogin(request):
         if userdetails.password == request.POST['password']:
             request.session['uid'] = userdetails.id
             request.session['uname'] = userdetails.name
+            #request.session['number'] = userdetails.number
             request.session['uemail'] = email 
 
             return redirect(index)
@@ -188,7 +189,10 @@ def emcservices(request):
 def addemcservices(request):
     if request.method=="POST":
         uid=request.session['uname']
-        location=request.POST.get('location')
+        #number=request.session['number']
+        state=request.POST.get('state')
+        District=request.POST.get('District')
+        city=request.POST.get('city')
         maplink=request.POST.get('maplink')
         category=request.POST.get('category')
         intensity=request.POST.get('intensity')
@@ -202,14 +206,17 @@ def addemcservices(request):
             filename = None
        
 
-        cus=emc_servicerequest(maplink=maplink,category=category,uid=uid,e_uid=0,location=location,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(maplink=maplink,state=state,District=District,city=city,category=category,uid=uid,e_uid=0,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 
 def addemcservices2(request):
     if request.method=="POST":
         e_uid=request.POST.get('name')
-        location=request.POST.get('location')
+        number=request.POST.get('number')
+        state=request.POST.get('state')
+        District=request.POST.get('District')
+        city=request.POST.get('city')
         maplink=request.POST.get('maplink')
         category=request.POST.get('category')
         intensity=request.POST.get('intensity')
@@ -223,7 +230,7 @@ def addemcservices2(request):
             filename = None
        
 
-        cus=emc_servicerequest(maplink=maplink,category=category,uid=0,e_uid=e_uid,location=location,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(maplink=maplink,state=state,District=District,city=city,category=category,uid=0,e_uid=e_uid,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 

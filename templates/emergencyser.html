@@ -29,20 +29,33 @@
                 {% endif %}
 
                         <div class="col-lg-6 col-12">    
-                            <select name="service" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
+                            <select name="state" id="volunteer-subject" class="form-control form-select" placeholder="state" required>
                                 <option value="">State</option>
                                 <option value="Kerala">Kerala</option>
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Mumbai">Mumbai</option>
                             </select>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <input type="text" name="location" id="volunteer-name" class="form-control" placeholder="Location" required>
-                        </div>
-
                         <div class="col-lg-6 col-12">    
-                            <input type="text" name="intensity" id="volunteer-email"  class="form-control" placeholder="Intensity" required>
+                            <select name="District" id="volunteer-subject" class="form-control form-select" placeholder="District" required>
+                                <option value="">District</option>
+                                <option value="Eranakulam">Eranakulam</option>
+                                <option value="Kottayam">Kottayam</option>
+                                <option value="Alappuzha">Alappuzha</option>
+                            </select>
                         </div>
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="city" id="volunteer-name" class="form-control" placeholder="City" required>
+                        </div>
+                        <div class="col-lg-6 col-12">    
+                            <select name="intensity" id="volunteer-subject" class="form-control form-select" placeholder="intensity" required>
+                                <option value="">intensity</option>
+                                <option value="very_high">very Hign</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>  
                         <div class="col-lg-6 col-12">    
                             <input type="text" name="maplink" id="volunteer-email"  class="form-control" placeholder="Map Link" >
                         </div>
@@ -59,7 +72,7 @@
                         </div>
                         <div class="col-lg-6 col-12">    
                             <select name="category" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
-                                <option value="">Select Category</option>
+                                <option value="">Public/private</option>
                               
                                 <option value="Public">Public</option>
                                 <option value="Private">Private</option>
@@ -73,7 +86,7 @@
                             <div class="input-group input-group-file">
                                 <input type="file" name="image" class="form-control" id="inputGroupFile02">
                                 
-                                <label class="input-group-text" for="inputGroupFile02">Image</label>
+                                <label class="input-group-text" for="inputGroupFile02">Image (optional)</label>
 
                                 <i class="bi-cloud-arrow-up ms-auto"></i>
                             </div>
@@ -87,10 +100,10 @@
             </div>
 
             <div class="col-lg-6 col-12">
-                <img src="static/images/smiling-casual-woman-dressed-volunteer-t-shirt-with-badge.jpg" class="volunteer-image img-fluid" alt="">
+                <img src="{% static 'images/smiling1.jpg' %}" class="volunteer-image img-fluid" alt="">
 
                 <div class="custom-block-body text-center">
-                    <h4 class="text-white mt-lg-3 mb-lg-3">About DEMS</h4>
+                    <h4 class="text-white mt-lg-3 mb-lg-3">About STORMLIGHT</h4>
 
                     <p class="text-white">The District Emergency Management System involves a coordinated and integrated approach to minimize the impact of disasters on people, property, and the environment. </p>
                 </div>
