@@ -54,7 +54,7 @@ https://templatemo.com/tm-581-kind-heart-charity
   --section-bg-color:             #f0f8ff;
   --site-footer-bg-color:         #950101;
   --custom-btn-bg-color:          #e32929;
-  --custom-btn-bg-hover-color:    #0070ff;
+  --custom-btn-bg-hover-color:    #ff110de5;
   --dark-color:                   #000000;
   --p-color:                      #ffffff;
   --border-color:                 #e9eaeb;
@@ -404,7 +404,7 @@ strong {
 }
 
 .dropdown-menu {
-  background: var(--white-color);
+  background: var(--primary-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
   max-width: 50px;
@@ -431,7 +431,7 @@ strong {
 .dropdown-item:focus, 
 .dropdown-item:hover {
   background: transparent;
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .dropdown-toggle::after {
@@ -739,11 +739,11 @@ strong {
 }
 
 .volunteer-image {
-  border-radius: 100%;
+  border-radius: 50%;
   display: block;
   margin: auto;
   width: 300px;
-  height: 300px;
+  height: 330px;
   object-fit: cover;
 }
 
@@ -1095,7 +1095,7 @@ blockquote::before {
   background-color: var(--section-bg-color);
   box-shadow: none;
   border: 0;
-  color: var(--p-color);
+  color: var(--dark-color);
   margin-bottom: 24px;
   padding-top: 13px;
   padding-bottom: 13px;

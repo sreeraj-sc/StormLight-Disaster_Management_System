@@ -23,8 +23,19 @@
                 <div class="col-lg-6 col-12">
                     <input type="text" name="name" id="volunteer-name" class="form-control" placeholder="Your Name" required>
                 </div>
+                <div class="col-lg-6 col-12">
+                    <input type="number" name="number" id="volunteer-number" class="form-control" placeholder="Mobile number" required>
+                </div>
                 {% endif %}
 
+                        <div class="col-lg-6 col-12">    
+                            <select name="service" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
+                                <option value="">State</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Mumbai">Mumbai</option>
+                            </select>
+                        </div>
                         <div class="col-lg-6 col-12">
                             <input type="text" name="location" id="volunteer-name" class="form-control" placeholder="Location" required>
                         </div>
