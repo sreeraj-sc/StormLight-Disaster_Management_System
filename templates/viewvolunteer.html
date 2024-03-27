@@ -1,0 +1,61 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            {% if request.session.uid %}
+            <form action="search" method="post">
+                {% csrf_token %}
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input style="background-color: rgb(152, 208, 227);" name="title" class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter District">
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Search</button>
+                    </div>
+                </form><br>
+            {% endif %}
+            <div class="col-lg-12 col-12 ms-auto">
+                <h2 class="mb-0">Volunteers List</h2>
+                <table class="table table-bordered" width="100%">
+                    <tr>
+                    <th> Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Gender </th>
+                    <th>Service </th>
+                    {% if request.session.admin %}
+                    <th>Remove</th>
+                    {% endif %}
+                
+                    </tr>
+                    {% for i in res %}
+                    
+                    <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.gender}}</td>
+                    <td>{{i.service}}</td>
+                    {% if request.session.admin %}
+                    <td><a href="removevol/{{i.id}}" class='btn btn-primary'>Remove</a></td>
+                    {% endif %}
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </div>
+
+          
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock %}

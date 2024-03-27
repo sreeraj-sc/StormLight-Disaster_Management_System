@@ -1,0 +1,65 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<section class="volunteer-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+<center>
+            <div class="col-lg-6 col-12">
+                <h2 class="text-white mb-4">Assign Request </h2>
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addassignreq/{{result.id}}" method="post" role="form">
+               
+                    {% csrf_token %}
+                    <h3 class="mb-4"></h3>
+
+                    <div class="row">
+
+                            <input type="text" name="uid" id="volunteer-name" value="{{result.uid}}" class="form-control" hidden required>
+                      
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="service" id="volunteer-name" value="{{result.service}}" class="form-control" readonly required>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="date" id="volunteer-subject" value="{{result.date}}"  class="form-control" readonly required>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="location" id="volunteer-subject" value="{{result.location}}"  class="form-control" readonly required>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="phone" id="volunteer-subject" value="{{result.phone}}"  class="form-control" readonly required>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="req_id" id="volunteer-subject" value="{{result.id}}"  class="form-control" hidden required>
+                        </div>
+                       
+
+                        <textarea name="issue" rows="3" readonly  class="form-control" id="volunteer-message" >{{result.message}}</textarea>
+                        <div class="col-lg-6 col-12">
+                            <select name="volunteer" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
+                                <option value="">Select Volunteer</option>
+                                {% for i in res %}
+                                <option value="{{i.id}}">{{i.name}}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="form-control">Submit</button>
+                </form>
+            </div>
+        </center>
+           
+
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
+{% endblock %}

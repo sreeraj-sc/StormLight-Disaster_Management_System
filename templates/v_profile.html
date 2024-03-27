@@ -1,0 +1,46 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<section class="about-section section-padding">
+    <div class="container">
+        <div class="row">
+
+          
+<center>
+    {% for i in result %}
+            <div class="col-lg-7 col-md-7 col-12">
+                <div class="custom-text-block">
+                    <h2 class="mb-0">{{i.name}}</h2>
+
+                    <p class="text-muted mb-lg-4 mb-md-4"><b>Email:</b> {{i.email}}</p>
+
+                    <p><b>Address:</b> {{i.address}}</p>
+
+                    <p><b>Phone:</b>{{i.phone}}</p>
+                    <p><b>Age:</b>{{i.age}}</p>
+                    <p><b>Gender:</b>{{i.gender}}</p>
+                    <p><b>Service:</b> {{i.service}}</p>
+
+                    <ul class="social-icon mt-4">
+                        <li class="social-icon-item">
+                            <a href="v_proupdt/{{i.id}}" title="update
+                            " class="social-icon-link bi-pencil"></a>
+                        </li>
+
+                       
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+</center>
+
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% if alert_message %}
+<script>
+    alert('{{alert_message}}')
+</script>
+{% endif %}
+<!-- Start page content --> 
+<style>
+    .table-container {
+        width: 100%;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    table, th, td {
+        border: 1px solid #000;
+    }
+
+    th {
+        background-color: #227bf8; /* Header background color */
+        color: #fff; /* Header text color */
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Even row background color */
+    }
+
+    tr:nth-child(odd) {
+        background-color: #e0e0e0; /* Odd row background color */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+</style>
+<div class="container">     
+    <div class="row my-4 my-md-5">
+         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2"> 
+            <h3 class="font-35 font-weight-bold fables-second-text-color text-center mb-3">Users Messages</h3>
+            <p class="fables-forth-text-color text-center">StormLight</p>
+             
+         </div>   
+     </div>    
+     <div class="row overflow-hidden">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    
+                    <th >Message</th>
+                </tr>
+                {% for i in result %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                   
+                    <td><a class="btn btn-danger" href="http://127.0.0.1:8000/chat_team/{{i.id}}">Chat</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div> 
+   
+<!-- /End page content -->
+<br><br><br>
+<br><br><br>
+<br><br><br>
+{% load static %}
+{% include 'footer.html' %}

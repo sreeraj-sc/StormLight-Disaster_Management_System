@@ -1,0 +1,56 @@
+
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-lg-12 col-12 ms-auto">
+                <h2 class="mb-0">Camp Details</h2>
+                <table class="table table-bordered" width="100%">
+                    <tr>
+                    <th>Camp Name</th>
+                  
+                    
+                    <th>Started Date</th>
+                    <th>Place</th>
+                    <th>Map Link</th>
+                    <th>Phone</th>
+                    {% if request.session.admin %}
+                    <th>Remove</th>
+                   {% endif %}
+                    
+                
+                    </tr>
+                    {% for i in result %}
+                    
+                    <tr>
+                    <td>{{i.name}}</td>
+                 
+                    <td>{{i.date}}</td>
+                    <td>{{i.place}}</td>
+                    <td><a href="{{i.map}}">{{i.map}}</a></td>
+
+                    <td>{{i.phone}}</td>
+                    {% if request.session.admin %}
+                    <td><a class="btn btn-primary" href="remove_camp/{{i.id}}">Remove</a></td>
+                 {% endif %}
+
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </div>
+
+          
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock %}

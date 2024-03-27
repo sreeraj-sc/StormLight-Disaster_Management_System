@@ -1,0 +1,243 @@
+{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>DEMS</title>
+
+        <!-- CSS FILES -->        
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-kind-heart-charity.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 581 Kind Heart Charity
+
+https://templatemo.com/tm-581-kind-heart-charity
+
+-->
+
+    </head>
+    
+    <body id="section_1">
+
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+                    
+                   
+                   
+
+                </div>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="static/images/logo.png" class="logo img-fluid" alt="">
+                    <span>
+                        Stormlight
+                        <small>Non-profit Organization</small>
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    {% if request.session.admin %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ADD</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/service">Service</a></li>
+
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/camp">Camp Details</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/add_hospital">Hospital Details</a></li>
+                            </ul>
+                        </li>
+                      
+                       
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/srreqsts">Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/view_chats">Messages</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">View</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/viewvol">Volunteers</a></li>
+
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/viewusers">Users</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/viewservice">Services</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_donation">Donations</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_camp">Camps</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_hos">Hospitals</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/emc_srreqsts">Emergency Requests</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/logout">Logout</a>
+                        </li>
+                    </ul>
+                    {% elif request.session.uid %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/index">Home</a>
+                        </li>
+
+                      
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/emcservices">Emergency</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/viewvol">Volunteers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/view_emergencyservice">Other Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/userreqs">My Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/customer_chat">Chat</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/emc_srreqsts_user">Disasters</a>
+                        </li>
+
+                      
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="register">User/Member</a></li>
+
+                                <li><a class="dropdown-item" href="volregister">Volunteer</a></li>
+                            </ul>
+                        </li> -->
+
+                       
+                        
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/logout">Logout</a>
+                        </li>
+                    </ul>
+                    {% elif request.session.vid %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/v_profile">Profile</a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/viewreqst">View Request</a>
+                        </li>
+                      
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="register">User/Member</a></li>
+
+                                <li><a class="dropdown-item" href="volregister">Volunteer</a></li>
+                            </ul>
+                        </li> -->
+
+                       
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/logout">Logout</a>
+                        </li>
+                    </ul>
+                    {% elif request.session.eid %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/emcservices">Emergency</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/view_emergencyservice">Other Services</a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other Facilities</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/donation">Receivables</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_camp">Camp</a></li>
+                            </ul>
+                        </li> 
+                      
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/logout">Logout</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://127.0.0.1:8000/index">Home</a>
+                        </li>
+          
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">User/Member</a></li>
+
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/volregister">Volunteer</a></li>
+                            </ul>
+                        </li>
+
+                       
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/emcservices">Emergency Call</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other Facilities</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/donation">Receivables</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_camp">Camp</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/v_hos">Hospitals</a></li>
+
+                            </ul>
+                        </li> 
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="http://127.0.0.1:8000/login">Login</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </nav>
+        {% endblock %}

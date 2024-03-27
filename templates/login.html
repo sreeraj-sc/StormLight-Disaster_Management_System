@@ -1,0 +1,46 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+{% if message2 %}
+<script>
+    alert('{{ message2 }}');
+</script>
+{% endif %}
+<section class="volunteer-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+<center>
+            <div class="col-lg-6 col-12">
+                <h2 class="text-white mb-4">Login </h2>
+<h3 style="color: rgb(248, 7, 7);">{{message4}}</h3>
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addlogin" method="post" role="form">
+                    {% csrf_token %}
+                    <h3 class="mb-4"></h3>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="email" id="volunteer-name" class="form-control" placeholder="Username" required>
+                        </div>
+
+                        
+
+                        <div class="col-lg-6 col-12">
+                            <input type="password" name="password" id="volunteer-subject" class="form-control" placeholder="Password" required>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="form-control">Submit</button>
+                </form>
+            </div>
+        </center>
+           
+
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
+{% endblock %}

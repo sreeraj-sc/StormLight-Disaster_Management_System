@@ -1,0 +1,81 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<script>
+    function capitalizeInput() {
+        var input = document.getElementById("volunteer-address");
+        input.value = input.value.toUpperCase();
+    }
+</script>
+
+<section class="volunteer-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+<center>
+            <div class="col-lg-6 col-12">
+                <h2 class="text-white mb-4">Service Request </h2>
+                {% if request.session.uid %}
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addserreq_user" method="post" role="form">
+                {% else %}
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addserreq" method="post" role="form">
+                {% endif %}
+                    {% csrf_token %}
+                    <h3 class="mb-4"></h3>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="service" id="volunteer-name" value="{{result.name}}" class="form-control" readonly required>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <input type="date" name="date" id="volunteer-subject" class="form-control" placeholder="Date" required>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <select name="location" required class="form-control" id="address">
+                                <option value="">Select District</option>
+                                <option value="Alappuzha">Alappuzha</option>
+                                <option value="Ernakulam">Ernakulam</option>
+                                <option value="Idukki">Idukki</option>
+                                <option value="Kannur">Kannur</option>
+                                <option value="Kasaragod">Kasaragod</option>
+                                <option value="Kollam">Kollam</option>
+                                <option value="Kottayam">Kottayam</option>
+                                <option value="Kozhikode">Kozhikode</option>
+                                <option value="Malappuram">Malappuram</option>
+                                <option value="Palakkad">Palakkad</option>
+                                <option value="Pathanamthitta">Pathanamthitta</option>
+                                <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                <option value="Thrissur">Thrissur</option>
+                                <option value="Wayanad">Wayanad</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <select name="state" required class="form-control" id="address">
+                                <option value="">Select State</option>
+                                <option value="Kerala">Kerala</option>
+                               
+                            </select>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <input type="text" name="phone" id="volunteer-subject" class="form-control" placeholder="Phone Number" required>
+                        </div>
+
+                        <textarea name="message" rows="3" class="form-control" id="volunteer-message" placeholder="Comment/Message (Compulsory)"></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="form-control">Submit</button>
+                </form>
+            </div>
+        </center>
+           
+
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
+{% endblock %}

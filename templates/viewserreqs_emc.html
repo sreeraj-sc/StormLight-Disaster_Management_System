@@ -1,0 +1,89 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+{% if message4 %}
+<script>
+    alert('{{ message4 }}');
+</script>
+{% endif %}
+<section class="cta-section section-padding section-bg">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-lg-12 col-12 ms-auto">
+                <h2 class="mb-0">Emergency Requests</h2>
+                <h5 class="mb-0">Emergency Users Requests</h5>
+                <div class="table-responsive"> <!-- Wrap the table in a div with the table-responsive class -->
+                    <table class="table table-bordered" width="100%">
+                        <tr>
+                            <th>Emergency User Name</th>
+                            <th>Requested Service</th>
+                            <th>Intensity</th>
+                            <th>Message/Description</th>
+                            <th>Place</th>
+                            <th>Map Link</th>
+                            <th>Category</th>
+                            <th>Image</th>
+                            {% if request.session.admin %}
+                            <th>Report</th>
+                            {% endif %}
+                        </tr>
+                        {% for i in result1 %}
+                        <tr>
+                            <td>{{i.e_uid}}</td>
+                            <td>{{i.service}}</td>
+                            <td>{{i.intensity}}</td>
+                            <td>{{i.message}}</td>
+                            <td>{{i.location}}</td>
+                            <td><a href="{{i.maplink}}">{{i.maplink}}</a></td>
+                            <td>{{i.category}}</td>
+                            <td><img src="/media/{{i.image }}" style="max-height: 100px; max-width: 200px;" alt="Image"></td>
+                            {% if request.session.admin %}
+                            <td><a href="report/{{i.id}}" class='btn btn-primary'>Report</a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-12 col-12 ms-auto">
+                <h5 class="mb-0">Members Requests</h5>
+                <div class="table-responsive"> <!-- Wrap the table in a div with the table-responsive class -->
+                    <table class="table table-bordered" width="100%">
+                        <tr>
+                            <th>User Name</th>
+                            <th>Requested Service</th>
+                            <th>Intensity</th>
+                            <th>Message/Description</th>
+                            <th>Place</th>
+                            <th>Map Location</th>
+                            <th>Category</th>
+                            <th>Image</th>
+                            {% if request.session.admin %}
+                            <th>Report</th>
+                            {% endif %}
+                        </tr>
+                        {% for i in result2 %}
+                        <tr>
+                            <td>{{i.uid}}</td>
+                            <td>{{i.service}}</td>
+                            <td>{{i.intensity}}</td>
+                            <td>{{i.message}}</td>
+                            <td>{{i.location}}</td>
+                            <td><a href="{{i.maplink}}">{{i.maplink}}</a></td>
+                            <td>{{i.category}}</td>
+                            <td><img src="/media/{{i.image }}" style="max-height: 100px; max-width: 200px;" alt="Image"></td>
+                            {% if request.session.admin %}
+                            <td><a href="report/{{i.id}}" class='btn btn-primary'>Report</a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+{% endblock %}

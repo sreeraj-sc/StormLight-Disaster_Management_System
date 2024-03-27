@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
        # 'NAME': BASE_DIR / 'db.sqlite3',
         'NAME':'district_emergency',
-        'HOST':'localhost',
+        'HOST':'127.0.0.1',
         'USER':'root',
         'PASSWORD':'',
         'PORT':'3306',

@@ -1,0 +1,94 @@
+
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<section class="volunteer-section section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <h2 class="text-white mb-4">Emergency Request</h2>
+                {% if request.session.uid %}
+                <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addemcservices" enctype='multipart/form-data' method="post" role="form">
+                    {% else %}
+                    <form class="custom-form volunteer-form mb-5 mb-lg-0" action="addemcservices2" enctype='multipart/form-data' method="post" role="form">
+                        {% endif %}
+                    {% csrf_token %}
+                    <h3 class="mb-4"></h3>
+
+                    <div class="row">
+                {% if request.session.uid %}
+                {% else %}
+                <div class="col-lg-6 col-12">
+                    <input type="text" name="name" id="volunteer-name" class="form-control" placeholder="Your Name" required>
+                </div>
+                {% endif %}
+
+                        <div class="col-lg-6 col-12">
+                            <input type="text" name="location" id="volunteer-name" class="form-control" placeholder="Location" required>
+                        </div>
+
+                        <div class="col-lg-6 col-12">    
+                            <input type="text" name="intensity" id="volunteer-email"  class="form-control" placeholder="Intensity" required>
+                        </div>
+                        <div class="col-lg-6 col-12">    
+                            <input type="text" name="maplink" id="volunteer-email"  class="form-control" placeholder="Map Link" >
+                        </div>
+                        <div class="col-lg-6 col-12">    
+                            <select name="service" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
+                                <option value="">Select Emergency Service</option>
+                              
+                                <option value="Water Emergency">Water Emergency</option>
+                                <option value="Fire Emergency">Fire Emergency</option>
+                                <option value="other">Other</option>
+                               
+
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-12">    
+                            <select name="category" id="volunteer-subject" class="form-control form-select" placeholder="Gender" required>
+                                <option value="">Select Category</option>
+                              
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                               
+
+                            </select>
+                        </div>
+
+                      
+                        <div class="col-lg-6 col-12">
+                            <div class="input-group input-group-file">
+                                <input type="file" name="image" class="form-control" id="inputGroupFile02">
+                                
+                                <label class="input-group-text" for="inputGroupFile02">Image</label>
+
+                                <i class="bi-cloud-arrow-up ms-auto"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <textarea name="message" rows="3" class="form-control" id="volunteer-message" placeholder="Comment (Optional)"></textarea>
+
+                    <button type="submit" class="form-control">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <img src="static/images/smiling-casual-woman-dressed-volunteer-t-shirt-with-badge.jpg" class="volunteer-image img-fluid" alt="">
+
+                <div class="custom-block-body text-center">
+                    <h4 class="text-white mt-lg-3 mb-lg-3">About DEMS</h4>
+
+                    <p class="text-white">The District Emergency Management System involves a coordinated and integrated approach to minimize the impact of disasters on people, property, and the environment. </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock %}
