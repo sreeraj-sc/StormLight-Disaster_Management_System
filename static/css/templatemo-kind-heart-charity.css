@@ -145,7 +145,7 @@ p {
 }
 
 ul li {
-  color: var(--p-color);
+  color: var(--dark-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
 }
