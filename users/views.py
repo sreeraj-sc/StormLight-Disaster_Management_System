@@ -278,12 +278,13 @@ def emc_srreqsts(request):
     sel1=emc_servicerequest.objects.filter(e_uid__gt=0)
     sel2=emc_servicerequest.objects.filter(uid__gt=0)
     return render(request,'viewserreqs_emc.html',{'result1':sel1,'result2':sel2})
+
 def emc_srreqsts_user(request):
     sel1=emc_servicerequest.objects.filter(e_uid__gt=0,category='Public')
     sel2=emc_servicerequest.objects.filter(uid__gt=0,category='Public')
     return render(request,'viewserreqs_emc.html',{'result1':sel1,'result2':sel2})
+
 def report(request,id):
-    
     sel=emc_servicerequest.objects.get(id=id)
     sel.delete()
     return render(request,'index.html',{'message7':'successfully Reported to the Disaster Authority'})
@@ -295,7 +296,6 @@ def assignreq(request,id):
     sel1=volregg.objects.filter(service=a,address=b)
     return render(request,'reqassign.html',{'result':sel,'res':sel1})
 
-
 def addassignreq(request,id):
     if request.method=="POST":
         date=request.POST.get('date')
@@ -305,7 +305,6 @@ def addassignreq(request,id):
         location=request.POST.get('location')
         phone=request.POST.get('phone')
         uid=request.POST.get('uid')
-
         cus=assign_request(uid=uid,e_uid=0,date=date,volunteer=volunteer,req_id=req_id,issue=issue,location=location,phone=phone,status='pending')
         cus.save()
         sel=servicerequest.objects.get(id=id)
@@ -330,7 +329,6 @@ def accept(request,id):
     h=sel.phone
     upd=assign_request(uid=a,e_uid=b,date=c,volunteer=d,req_id=e,issue=f,location=g,phone=h,status='accepted',id=id)
     upd.save()
-   
     return redirect(viewreqst)
 
 def reject(request,id):
@@ -345,7 +343,6 @@ def reject(request,id):
     h=sel.phone
     upd=assign_request(uid=a,e_uid=b,date=c,volunteer=d,req_id=e,issue=f,location=g,phone=h,status='rejected',id=id)
     upd.save()
-   
     return redirect(viewreqst)
 
 def userreqs(request):
@@ -373,7 +370,6 @@ def v_pupdate(request,id):
     gender=request.POST.get('gender')
     service=request.POST.get('service')
     password=request.POST.get('password')
-
     sp=volregg(name=name,email=email,phone=phone,address=address,age=age,gender=gender,service=service,password=password,id=id)
     sp.save()
     return redirect(v_profile)
