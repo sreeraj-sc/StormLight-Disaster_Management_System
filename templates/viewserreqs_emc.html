@@ -21,7 +21,8 @@
                             <th>Requested Service</th>
                             <th>Intensity</th>
                             <th>Message/Description</th>
-                            <th>Place</th>
+                            <th>Location</th>
+                            <th>ip based details</th>
                             <th>Map Link</th>
                             <th>Category</th>
                             <th>Image</th>
@@ -36,6 +37,7 @@
                             <td>{{i.intensity}}</td>
                             <td>{{i.message}}</td>
                             <td>{{i.city}}, {{i.District}}, {{i.state}}</td>
+                            <td>ip : {{i.ip_ipaddr}}<br>Region : {{ i.ip_regionName }}<br>City : {{ i.ip_city }}<br>Zip : {{ i.ip_zip }}<br>Lat : {{ i.ip_lat }}<br>Lon : {{ i.ip_lon }}</td>
                             <td><a href="{{i.maplink}}">{{i.maplink}}</a></td>
                             <td>{{i.category}}</td>
                             <td><img src="/media/{{i.image }}" style="max-height: 100px; max-width: 200px;" alt="Image"></td>
@@ -56,7 +58,8 @@
                             <th>Requested Service</th>
                             <th>Intensity</th>
                             <th>Message/Description</th>
-                            <th>Place</th>
+                            <th>Location</th>
+                            <th>ip based details</th>
                             <th>Map Location</th>
                             <th>Category</th>
                             <th>Image</th>
@@ -70,7 +73,8 @@
                             <td>{{i.service}}</td>
                             <td>{{i.intensity}}</td>
                             <td>{{i.message}}</td>
-                            <td>{{i.location}}</td>
+                            <td>{{i.city}}, {{i.District}}, {{i.state}}</td>
+                            <td>ip : {{i.ip_ipaddr}}<br>Region : {{ i.ip_regionName }}<br>City : {{ i.ip_city }}<br>Zip : {{ i.ip_zip }}<br>Lat : {{ i.ip_lat }}<br>Lon : {{ i.ip_lon }}</td>
                             <td><a href="{{i.maplink}}">{{i.maplink}}</a></td>
                             <td>{{i.category}}</td>
                             <td><img src="/media/{{i.image }}" style="max-height: 100px; max-width: 200px;" alt="Image"></td>

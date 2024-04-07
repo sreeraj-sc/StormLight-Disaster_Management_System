@@ -8,6 +8,9 @@ import pycurl
 from urllib.parse import urlencode
 from .models import *
 from django.db.models import Q
+import requests
+import json
+
 
 # Create your views here.
 
@@ -188,10 +191,16 @@ def emcservices(request):
 
 def addemcservices(request):
     if request.method=="POST":
+        ip = requests.get('https://api.ipify.org?format=json')
+        ip_data = json.loads(ip.text)
+        res = requests.get('http://ip-api.com/json/'+ip_data["ip"])
+        location_data_test = res.text
+        location_data = json.loads(location_data_test)
+
         uid=request.session['uname']
         #number=request.session['number']
         state=request.POST.get('state')
-        District=request.POST.get('District')
+        District=request.POST.get('district')
         city=request.POST.get('city')
         maplink=request.POST.get('maplink')
         category=request.POST.get('category')
@@ -206,16 +215,22 @@ def addemcservices(request):
             filename = None
        
 
-        cus=emc_servicerequest(maplink=maplink,state=state,District=District,city=city,category=category,uid=uid,e_uid=0,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,state=state,District=District,city=city,category=category,uid=uid,e_uid=0,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 
 def addemcservices2(request):
     if request.method=="POST":
+        ip = requests.get('https://api.ipify.org?format=json')
+        ip_data = json.loads(ip.text)
+        res = requests.get('http://ip-api.com/json/'+ip_data["ip"])
+        location_data_test = res.text
+        location_data = json.loads(location_data_test)
+
         e_uid=request.POST.get('name')
         number=request.POST.get('number')
         state=request.POST.get('state')
-        District=request.POST.get('District')
+        District=request.POST.get('district')
         city=request.POST.get('city')
         maplink=request.POST.get('maplink')
         category=request.POST.get('category')
@@ -230,7 +245,7 @@ def addemcservices2(request):
             filename = None
        
 
-        cus=emc_servicerequest(maplink=maplink,state=state,District=District,city=city,category=category,uid=0,e_uid=e_uid,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,state=state,District=District,city=city,category=category,uid=0,e_uid=e_uid,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 

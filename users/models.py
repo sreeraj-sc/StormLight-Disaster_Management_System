@@ -54,6 +54,13 @@ class emc_servicerequest(models.Model):
     service=models.CharField(max_length=150)
     status=models.CharField(max_length=150)
     category=models.CharField(max_length=150)
+    ip_contry=models.CharField(max_length=150, default='')
+    ip_regionName=models.CharField(max_length=150, default='')
+    ip_city=models.CharField(max_length=150, default='')
+    ip_zip=models.CharField(max_length=150, default='')
+    ip_lat=models.CharField(max_length=150, default='')
+    ip_lon=models.CharField(max_length=150, default='')
+    ip_ipaddr=models.CharField(max_length=150, default='')
 
 
 class assign_request(models.Model):
