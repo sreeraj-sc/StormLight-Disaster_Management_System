@@ -42,11 +42,9 @@ class servicerequest(models.Model):
 class emc_servicerequest(models.Model):
     uid=models.CharField(max_length=150)
     e_uid=models.CharField(max_length=150)
-    #number=models.CharField(max_length=150, null=True, blank=True)
-    state=models.CharField(max_length=150)
+    #number=models.CharField(max_length=150, null=True, blank=True) 
     District=models.CharField(max_length=150, default="unknown")
     city=models.CharField(max_length=150, default="unknown")
-    state=models.CharField(max_length=150)
     maplink=models.CharField(max_length=150)
     intensity=models.CharField(max_length=150)
     image=models.CharField(max_length=150, null=True, blank=True)

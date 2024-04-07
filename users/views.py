@@ -199,7 +199,6 @@ def addemcservices(request):
 
         uid=request.session['uname']
         #number=request.session['number']
-        state=request.POST.get('state')
         District=request.POST.get('district')
         city=request.POST.get('city')
         maplink=request.POST.get('maplink')
@@ -215,7 +214,7 @@ def addemcservices(request):
             filename = None
        
 
-        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,state=state,District=District,city=city,category=category,uid=uid,e_uid=0,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,District=District,city=city,category=category,uid=uid,e_uid=0,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 
@@ -229,7 +228,6 @@ def addemcservices2(request):
 
         e_uid=request.POST.get('name')
         number=request.POST.get('number')
-        state=request.POST.get('state')
         District=request.POST.get('district')
         city=request.POST.get('city')
         maplink=request.POST.get('maplink')
@@ -245,7 +243,7 @@ def addemcservices2(request):
             filename = None
        
 
-        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,state=state,District=District,city=city,category=category,uid=0,e_uid=e_uid,intensity=intensity,image=filename,message=message,service=service,status='pending')
+        cus=emc_servicerequest(ip_contry=location_data['country'],ip_regionName=location_data['regionName'],ip_city=location_data['city'],ip_zip=location_data['zip'],ip_lat=location_data['lat'],ip_lon=location_data['lon'],ip_ipaddr=location_data['query'],maplink=maplink,District=District,city=city,category=category,uid=0,e_uid=e_uid,intensity=intensity,image=filename,message=message,service=service,status='pending')
         cus.save()
     return render(request,'index.html', {'message4':'successfully Registered'})
 
