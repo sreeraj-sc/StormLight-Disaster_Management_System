@@ -123,6 +123,7 @@ h2 {
 
 h3 {
   font-size: var(--h3-font-size);
+  color: var(--white-color);
 }
 
 h4 {
@@ -157,7 +158,7 @@ button {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--white-color);
   text-decoration: none;
 }
 
