@@ -32,7 +32,7 @@
                     <td>{{i.name}}</td>
                  
                     <td>{{i.place}}</td>
-                    <td><a href="{{i.map}}">{{i.map}}</a></td>
+                    <td><center>{% if request.object %}{{i.map}}{% endif %}</center></td>
                     <td>{{i.phone}}</td>
                     {% if request.session.admin %}
                     <td><a class="btn btn-primary" href="remove_hos/{{i.id}}">Remove</a></td>
