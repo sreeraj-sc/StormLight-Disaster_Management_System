@@ -24,17 +24,30 @@ def register(request):
     return render(request,'register.html')
 
 def adduser(request):
-    if request.method=="POST":
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        address=request.POST.get('address')
-        phone=request.POST.get('phone')
-        password=request.POST.get('password')
-       
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        address = request.POST.get('address')
+        phone = request.POST.get('phone')
+        password = request.POST.get('password')
 
-        cus=userregg(name=name,email=email,address=address,phone=phone,password=password)
+        # Check for existing user with the same email before registration
+        if userregg.objects.filter(email=email).exists():
+            return render(request, 'index.html', {'message1': 'Email already exists!'})
+
+        # Create and save new user if email is unique
+        cus = userregg(name=name, email=email, address=address, phone=phone, password=password)
         cus.save()
-    return render(request,'index.html', {'message1':'successfully Registered'})
+
+        # Login the newly registered user
+        userdetails = userregg.objects.get(email=email)  # Assuming email is unique
+        request.session['uid'] = userdetails.id
+        request.session['uname'] = userdetails.name
+        request.session['uemail'] = email
+
+        return redirect('index')  # Assuming 'index' is the desired redirect URL
+
+    return render(request, 'register.html')  # Assuming 'register.html' is the registration form template
 
 def service(request):
     return render(request,'addservice.html')
